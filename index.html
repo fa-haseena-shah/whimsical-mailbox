@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the whimsical mailbox</title>
+    <link rel="icon" type="image/png" href="assets/illustrations/fav.webp">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="main-btns">
+        <!-- sound button -->
+        <button type="button" id="soundBtn" onclick="muteSound()"><img src="assets/illustrations/sound-on.png" alt="music playing ~"></button>
+        <button type="button" id="writeBtn">write letter</button>
+    </div>
+
+    <!-- modal for write letter form -->
+    <dialog id="letterFormDialog">
+        <div class="letter-form">
+            <form>
+                <button type="button" class="closeBtn" onclick="closeDialog()">x</button>
+                <label for="letterInput">Write your Letter</label><br>
+                <textarea name="letter" id="letterInput"></textarea>
+                <div class="form-bottom">
+                    <label for="authorName">Author</label>
+                    <input type="text" placeholder="Or leave it anonymous <3" id="authorName">
+                    <button type="button" id="postBtn">Post</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+    <!-- mailbox illustration -->
+    <div class="mailbox">
+        <img src="assets/illustrations/mb-1.PNG" alt="mailbox" id="mailboxClosed" onclick="openLetterDialog()">
+        <img src="assets/illustrations/floral-1.PNG" alt="floral vines" id="floralVine1">
+    </div>
+    <div class="instructions-sec">
+        <img src="assets/illustrations/title-1.PNG" alt="the whimsical mailbox" id="title1">
+        <div class="instructions">
+            <p>tap mailbox to open <br> & receive your letter</p>
+            <p>write your own <br> letter & post it</p>
+        </div>
+    </div>
+    <!-- <div class="openLetterBtn">
+        <button type="button" onclick="openLetterDialog()">open</button>
+    </div> -->
+    <!-- modal for letter overlay -->
+    <dialog id="letterDialog">
+        <div class="letter-container">
+            <p id="letterDisplay"></p>
+            <div class="auth-container">
+                <p>-</p>
+                <p id="authorDisplay"></p>
+            </div>
+        </div>
+        <button type="button" class="closeBtn" onclick="closeLetter()">x</button>
+    </dialog>
+</body>
+</html>

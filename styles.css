@@ -1,0 +1,372 @@
+@font-face {
+  font-family: 'princess_sofia';
+  src: url('assets/fonts/PrincessSofia-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'ac-pro';
+  src: url(assets/fonts/ACaslonPro-Regular.otf);
+}
+
+@font-face {
+  font-family: 'ac-pro-italics';
+  src: url(assets/fonts/Adobe\ Caslon\ Pro\ Italic.ttf);
+}
+
+:root {
+  --main-background: #F7EFD5;
+  --write-letter-bg: #FFF8E1;
+  --letter-bg: #FFF8E1; 
+  --black: #3D3939;
+  --shadow: #3d393957;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'princess_sofia', cursive;
+  color: var(--black);
+}
+
+body {
+  background-color: var(--main-background);
+  display: flex;
+  flex-direction: column;
+}
+
+.main-btns {
+    position: fixed;
+    top: 3rem;
+    left: 10rem;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+#soundBtn {
+    background: none;
+    border: none;
+    cursor:default;
+    padding: 0;
+    margin-right: 40px;
+}
+
+#soundBtn img {
+    width: 60px;
+    object-fit: contain;
+}
+
+#writeBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'princess_sofia', cursive;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0;
+}
+
+/* #writeBtn img {
+  width: 220px;
+  object-fit: contain;
+} */
+
+#soundBtn, #writeBtn {
+    transition: transform 0.2s ease;
+}
+
+#soundBtn:hover, #writeBtn:hover {
+    transform: scale(1.03);
+}
+
+.mailbox {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 65vw;
+    height: 90vw;
+}
+
+.mailbox img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom right;
+}
+
+#mailboxClosed {
+    position: relative;
+    z-index: 0;
+}
+
+#floralVine1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom right;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* .openLetterBtn {
+    position: fixed;
+    bottom: 45%;
+    right: 37%;
+    z-index: 5;
+}
+
+.openLetterBtn button {
+    background: url(assets/illustrations/openbtn-bg.png);
+    padding: 0.4rem 1.4rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transform: rotate(3deg);
+    transition: transform 0.15s ease;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.openLetterBtn button:hover {
+    transform: scale(1.05);
+} */
+
+dialog {
+  border: none;
+  outline: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  box-shadow: -1px 7px 8.7px 1px var(--shadow);
+}
+
+#letterFormDialog {
+    border: none;
+    padding: 2rem;
+    background: var(--write-letter-bg);
+    width: 30%;
+    max-width: 900px;
+    height: auto;
+    max-height: 90vh;
+    margin: 0;
+    box-shadow: -1px 7px 8.7px 1px var(--shadow);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.letter-form {
+    background: transparent;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.letter-form form {
+    position: relative;
+    width:95%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-family: 'ac-pro', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--black);
+    letter-spacing: 0.1em;
+    padding: 0;
+}
+
+.letter-form label {
+    font-family: 'princess_sofia';
+    font-size: 1.9rem;
+    color: var(--black);
+    margin: 0;
+}
+
+.letter-form textarea {
+    width: 100%;
+    height: 160px;
+    background: var(--letter-bg);
+    border: 1px solid black;
+    border-radius: 9px;
+    resize: none;
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    letter-spacing: 1.5px;
+}
+
+.form-bottom {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.form-bottom label {
+    font-family: 'princess_sofia', cursive;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #1a1a1a;
+    font-weight: 400;
+}
+
+.form-bottom input[type="text"] {
+    flex: 1;
+    margin: 0 2rem;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--black);
+    font-family: 'ac-pro-italics', serif;
+    font-size: 1rem;
+    color: var(--black);
+    text-align: left;
+    outline: none;
+}
+
+.form-bottom button[type="button"]:not(.closeBtn) {
+    background: none;
+    border: none;
+    font-family: 'princess_sofia', cursive;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--black);
+    cursor: pointer;
+    padding: 0;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  font-family: 'ac-pro', serif;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  letter-spacing: 0.1em;
+}
+
+.letter-container {
+  border: none;
+  outline: none;
+  width: 700px;
+  height: 526px;
+  margin: 0;
+  padding: 3rem 4rem;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: var(--letter-bg);
+}
+
+.letter-1 {
+  background: url(assets/illustrations/letter-1.PNG);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  box-shadow: #3D3939;
+}
+
+.letter-2 {
+  background: url(assets/illustrations/letter-2.PNG);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  box-shadow: #3D3939;
+}
+
+.letter-3 {
+  background: url(assets/illustrations/letter-3.PNG);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  box-shadow: #3D3939;
+}
+
+#letterDisplay {
+    font-family: 'princess_sofia', cursive;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 3rem;
+    color: var(--black);
+}
+
+#authorDisplay {
+    font-family: 'ac-pro-italics', serif; 
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--black);
+}
+
+.auth-container p {
+  display: inline;
+}
+
+#letterDialog .closeBtn {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    font-family: 'ac-pro', serif;
+}
+
+.instructions-sec {
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display:block;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.instructions-sec img {
+    width: 380px;
+    height: auto;
+}
+
+.instructions {
+  display: flex;
+  gap: 100px;
+}
+
+.instructions p {
+  font-family: 'ac-pro-italics', serif;
+  font-size: 15pt;
+  align-items: center;
+  
+}
